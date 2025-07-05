@@ -16,7 +16,6 @@ namespace Microsoft.SemanticKernel.Agents.Orchestration;
 /// </summary>
 public abstract class AgentActor : OrchestrationActor
 {
-    private AgentInvokeOptions? _options;
 
     /// <summary>
     /// Initializes a new instance of the <see cref="AgentActor"/> class.
@@ -164,7 +163,7 @@ public abstract class AgentActor : OrchestrationActor
         }
     }
 
-    private AgentInvokeOptions GetInvokeOptions(Func<ChatMessageContent, Task> messageHandler) => this._options ??= this.CreateInvokeOptions(messageHandler);
+    private AgentInvokeOptions GetInvokeOptions(Func<ChatMessageContent, Task> messageHandler) => this.CreateInvokeOptions(messageHandler);
 
     private static string VerifyDescription(Agent agent)
     {
